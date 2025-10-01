@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacy Policy — 204 Solutions iOS Developer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav container">
+      <div class="brand">
+        <div class="brand-text">
+          <strong>204 Solutions iOS Developer</strong>
+        </div>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="card">
+      <h1>Privacy Policy</h1>
+      <p class="muted">Effective date: <strong>September 30, 2025</strong></p>
+
+      <h2>Zero data collection by default</h2>
+      <p>This website is designed to collect as little information as possible. By default, we do not track you, set analytics cookies, or collect usage data. We believe privacy is a baseline — not an option.</p>
+
+      <h3>Contact form and submitted information</h3>
+      <p>The contact form on this site is the only feature that intentionally collects data. When you submit the form you provide the following fields:</p>
+      <ul>
+        <li><strong>Name</strong> (required)</li>
+        <li><strong>Email</strong> (required) — used only to reply to your inquiry</li>
+        <li><strong>Project title</strong> (optional)</li>
+        <li><strong>Target iOS version, devices, message</strong> (optional)</li>
+      </ul>
+
+      <h3>How submissions are stored</h3>
+      <p>Each submission is saved as a JSON file in an Azure Blob Storage container. Files are created only when you submit the form. The site does not forward or share these submissions with third parties automatically.</p>
+
+      <h3>Data retention</h3>
+      <p>Submissions are retained until manually deleted. If you'd like your submission removed, contact the site owner at the email address provided in your submission or open an issue in this repository.</p>
+
+      <h3>No analytics, no tracking</h3>
+      <p>This site does not use analytics tools, trackers, or advertising networks. Nothing on this website is used to build a profile about you.</p>
+
+      <h3>Security</h3>
+      <p>Access to stored submissions is protected by the storage account's credentials. The Azure Storage connection string is kept secret in the application settings and is not published in this repository.</p>
+
+      <h3>Legal and contact</h3>
+      <p>If you have questions about your data or want your submission deleted, contact the site owner at the email you supplied when you submitted the form.</p>
+
+      <p class="muted">By using the contact form you agree to the terms described in this privacy policy.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>&copy; <span id="year"></span> 204 Solutions iOS Developer</small>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+</body>
+</html>
