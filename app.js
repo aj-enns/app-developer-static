@@ -1,16 +1,21 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 const form = document.getElementById('contactForm');
-const statusEl = document.getElementById('status');
+const toast = document.getElementById('toast');
+
+function showToast(text, ms = 3500) {
+  toast.textContent = text;
+  toast.classList.add('show');
+  clearTimeout(toast._hide);
+  toast._hide = setTimeout(() => toast.classList.remove('show'), ms);
+}
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  statusEl.textContent = '';
   const submitBtn = form.querySelector('button[type="submit"]');
   submitBtn.disabled = true;
 
   const formData = new FormData(form);
-  // gather checkbox values
   const devices = [];
   for (const el of form.querySelectorAll('input[name="devices"]:checked')) {
     devices.push(el.value);
@@ -32,15 +37,16 @@ form.addEventListener('submit', async (e) => {
       body: JSON.stringify(payload)
     });
     if (res.ok) {
-      statusEl.textContent = 'Thanks — your message was saved.';
+      showToast('Thanks — your message was saved.');
       form.reset();
     } else {
       const text = await res.text();
-      statusEl.textContent = 'Failed to send: ' + (text || res.statusText);
+      showToast('Failed to send: ' + (text || res.statusText));
     }
   } catch (err) {
-    statusEl.textContent = 'Network error: ' + err.message;
+    showToast('Network error: ' + err.message);
   } finally {
     submitBtn.disabled = false;
   }
 });
+

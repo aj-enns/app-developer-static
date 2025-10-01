@@ -3,75 +3,126 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#061428" />
   <title>iOS Developer — Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
-    <h1>iOS App Developer</h1>
-    <p>Building amazing iOS experiences. Tell me about your idea.</p>
+    <div class="nav container">
+      <div class="brand">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="24" height="24" rx="6" fill="#0a3a66" />
+          <path d="M7 13c1.5-2 4-2 6-1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="brand-text">
+          <strong>204 Solutions iOS Developer</strong>
+          <small>Design · Swift · System Performance</small>
+        </div>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="container">
-    <section class="card">
-      <h2>Contact</h2>
-      <form id="contactForm">
-        <label>
-          Name
-          <input type="text" name="name" id="name" required />
-        </label>
-
-        <label>
-          Email
-          <input type="email" name="email" id="email" required />
-        </label>
-
-        <label>
-          Project title
-          <input type="text" name="title" id="title" />
-        </label>
-
-        <label>
-          Target iOS version
-          <select name="iosVersion" id="iosVersion">
-            <option value="any">Any / Unsure</option>
-            <option>iOS 17</option>
-            <option>iOS 16</option>
-            <option>iOS 15</option>
-            <option>iOS 14 or lower</option>
-          </select>
-        </label>
-
-        <label>
-          Devices (check all that apply)
-          <div class="checkboxes">
-            <label><input type="checkbox" name="devices" value="iPhone" /> iPhone</label>
-            <label><input type="checkbox" name="devices" value="iPad" /> iPad</label>
-            <label><input type="checkbox" name="devices" value="Apple Watch" /> Apple Watch</label>
-          </div>
-        </label>
-
-        <label>
-          Message
-          <textarea name="message" id="message" rows="5"></textarea>
-        </label>
-
-        <div class="actions">
-          <button type="submit">Send</button>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Building polished, native iOS experiences</h1>
+          <p class="lead">From SwiftUI prototypes to production-ready apps — I focus on performance, accessibility and delightful UX.</p>
+          <p class="muted">Looking to build or improve an iOS app? Tell me about your project.</p>
+          <a href="#contact" class="primary-btn">Get in touch</a>
         </div>
-
-        <div id="status" role="status" aria-live="polite"></div>
-      </form>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="device-mock">
+            <div class="screen">
+              <div class="mock-header"></div>
+              <div class="mock-list">
+                <div class="mock-item" style="--i:1"></div>
+                <div class="mock-item" style="--i:2"></div>
+                <div class="mock-item" style="--i:3"></div>
+                <div class="mock-item" style="--i:4"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h3>About</h3>
-      <p>I'm an iOS developer focused on Swift, UIKit/SwiftUI, Core Data, CloudKit and performant native experiences.</p>
+    <section class="container two-column">
+      <div class="about card" id="about">
+        <h3>About</h3>
+        <p>I'm an iOS developer focused on Swift, UIKit/SwiftUI, Core Data, CloudKit and performant native experiences. I ship thoughtful interfaces backed by solid architecture.</p>
+        <ul class="features">
+          <li>Swift & SwiftUI</li>
+          <li>Architecture & Testing</li>
+          <li>App Store readiness</li>
+        </ul>
+      </div>
+
+      <aside class="contact card" id="contact">
+        <h2>Contact</h2>
+        <p class="muted">Share a few details and I’ll follow up within 48 hours.</p>
+        <form id="contactForm">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required />
+          </div>
+
+          <div class="field">
+            <label for="title">Project title</label>
+            <input type="text" name="title" id="title" />
+          </div>
+
+          <div class="field">
+            <label for="iosVersion">Target iOS version</label>
+            <select name="iosVersion" id="iosVersion">
+              <option value="any">Any / Unsure</option>
+              <option>iOS 17</option>
+              <option>iOS 16</option>
+              <option>iOS 15</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Devices</label>
+            <div class="checkboxes">
+              <label><input type="checkbox" name="devices" value="iPhone" /> iPhone</label>
+              <label><input type="checkbox" name="devices" value="iPad" /> iPad</label>
+              <label><input type="checkbox" name="devices" value="Apple Watch" /> Apple Watch</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rows="5"></textarea>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="primary">Send message</button>
+          </div>
+        </form>
+      </aside>
     </section>
   </main>
 
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
   <footer class="site-footer">
-    <small>&copy; <span id="year"></span> iOS App Developer</small>
+    <div class="container">
+      <small>&copy; <span id="year"></span> iOS App Developer</small>
+    </div>
   </footer>
 
   <script src="app.js"></script>
