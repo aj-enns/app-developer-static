@@ -1,0 +1,11 @@
+{
+  "name": "swa-contact-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Azure Function API to save contact submissions to Blob Storage",
+  "main": "index.js",
+  "dependencies": {
+    "@azure/storage-blob": "^12.13.0",
+    "uuid": "^9.0.0"
+  }
+}

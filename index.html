@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>iOS Developer — Contact</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>iOS App Developer</h1>
+    <p>Building amazing iOS experiences. Tell me about your idea.</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Contact</h2>
+      <form id="contactForm">
+        <label>
+          Name
+          <input type="text" name="name" id="name" required />
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" id="email" required />
+        </label>
+
+        <label>
+          Project title
+          <input type="text" name="title" id="title" />
+        </label>
+
+        <label>
+          Target iOS version
+          <select name="iosVersion" id="iosVersion">
+            <option value="any">Any / Unsure</option>
+            <option>iOS 17</option>
+            <option>iOS 16</option>
+            <option>iOS 15</option>
+            <option>iOS 14 or lower</option>
+          </select>
+        </label>
+
+        <label>
+          Devices (check all that apply)
+          <div class="checkboxes">
+            <label><input type="checkbox" name="devices" value="iPhone" /> iPhone</label>
+            <label><input type="checkbox" name="devices" value="iPad" /> iPad</label>
+            <label><input type="checkbox" name="devices" value="Apple Watch" /> Apple Watch</label>
+          </div>
+        </label>
+
+        <label>
+          Message
+          <textarea name="message" id="message" rows="5"></textarea>
+        </label>
+
+        <div class="actions">
+          <button type="submit">Send</button>
+        </div>
+
+        <div id="status" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h3>About</h3>
+      <p>I'm an iOS developer focused on Swift, UIKit/SwiftUI, Core Data, CloudKit and performant native experiences.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>&copy; <span id="year"></span> iOS App Developer</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
