@@ -24,7 +24,7 @@ body{
 .site-header{background:transparent;padding:1.25rem 0}
 .nav{display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:.75rem}
-.brand img{width:36px;height:36px;object-fit:contain;border-radius:6px}
+.brand img{width:66px;height:66px;object-fit:contain;border-radius:6px}
 .brand-text strong{display:block;font-weight:700}
 .brand-text small{display:block;color:var(--muted);font-size:.8rem}
 .site-nav a{color:var(--muted);text-decoration:none;margin-left:1rem}
