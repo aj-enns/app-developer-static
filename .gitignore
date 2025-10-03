@@ -40,3 +40,19 @@ coverage/
 
 # Misc
 .cache/
+
+# Local Azure Functions settings (explicit path)
+/api/local.settings.json
+
+# Playwright test artifacts
+playwright-report/
+test-results/
+
+# Azurite local storage folder
+azurite/
+
+# Optional local env overrides
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
