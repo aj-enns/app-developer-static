@@ -4,11 +4,20 @@
   "private": true,
   "scripts": {
     "start": "http-server -p 8080",
+    "start:azurite": "node node_modules/azurite/dist/src/azurite.js --silent --location azurite --debug azurite/debug.log",
+    "start:api": "node test-server.js",
+    "start:all": "concurrently --kill-others \"npm run start:azurite\" \"npm run start:api\" \"npm start\"",
     "test:e2e": "playwright test",
-    "test:e2e:headed": "playwright test --headed"
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:full": "concurrently --kill-others --success first \"npm run start:azurite\" \"npm run start:api\" \"npm start\" \"npm run test:e2e\""
   },
   "devDependencies": {
+    "@azure/storage-blob": "^12.28.0",
     "@playwright/test": "^1.40.0",
+    "azurite": "^3.35.0",
+    "concurrently": "^9.2.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
     "http-server": "^14.1.1"
   }
 }
