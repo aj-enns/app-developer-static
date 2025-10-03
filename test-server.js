@@ -17,18 +17,16 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/api/contact', async (req, res) => {
+  // Create a proper context object for Azure Function
   const context = {
-    log: (...args) => console.log('[API]', ...args),
-    log: {
-      error: (...args) => console.error('[API ERROR]', ...args),
-      info: (...args) => console.log('[API INFO]', ...args),
-      warn: (...args) => console.warn('[API WARN]', ...args)
-    },
     res: null
   };
   
-  // Add default log function
+  // Add log function and its methods
   context.log = (...args) => console.log('[API]', ...args);
+  context.log.error = (...args) => console.error('[API ERROR]', ...args);
+  context.log.info = (...args) => console.log('[API INFO]', ...args);
+  context.log.warn = (...args) => console.warn('[API WARN]', ...args);
   
   try {
     await contactHandler(context, { body: req.body });

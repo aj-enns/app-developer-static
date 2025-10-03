@@ -1,29 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { BlobServiceClient } from '@azure/storage-blob';
 
-test.beforeEach(async ({ page }) => {
-  // Route API calls from the static site to the API server
-  await page.route('**/api/contact', async (route) => {
-    const request = route.request();
-    const postData = request.postData();
-    
-    // Forward to the actual API server
-    const response = await page.request.post('http://localhost:7071/api/contact', {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      data: postData
-    });
-    
-    const body = await response.text();
-    route.fulfill({
-      status: response.status(),
-      headers: response.headers(),
-      body: body
-    });
-  });
-});
-
 test('submitting the contact form saves to Azure Storage and shows success', async ({ page }) => {
   await page.goto('/');
 
