@@ -1,0 +1,13 @@
+name: Azure Static Web Apps CI/CD (archived)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  archived:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Archive placeholder
+        run: echo "Archived copy of original workflow"

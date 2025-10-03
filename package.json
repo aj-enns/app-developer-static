@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "start": "http-server -p 8080",
+  "build": "node ./scripts/build.js",
+  "build:azure": "npm run build",
     "test:e2e": "playwright test",
     "test:e2e:headed": "playwright test --headed"
   },
