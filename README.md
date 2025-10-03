@@ -49,6 +49,64 @@ Contract
 - Success: HTTP 200 with JSON `{ ok: true, file: "<blobName>" }`.
 - Errors: 400 on bad input, 500 on server/storage errors.
 
+## Local Development and Testing
+
+This project includes a complete local development setup using Azurite (Azure Storage emulator) and a test API server.
+
+### Prerequisites
+```bash
+# Install root dependencies (includes Playwright, Azurite, etc.)
+npm install
+
+# Install API dependencies
+cd api
+npm install
+cd ..
+```
+
+### Running Locally
+
+Start all services (Azurite, API server, and web server with proxy):
+```bash
+npm run start:all
+```
+
+This starts:
+- **Azurite** on port 10000 (blob storage emulator)
+- **API server** on port 7071 (wraps the Azure Function)
+- **Web server** on port 8080 (serves static files and proxies API requests)
+
+Visit `http://localhost:8080` to use the application.
+
+### Running Individual Services
+
+```bash
+# Start only Azurite (storage emulator)
+npm run start:azurite
+
+# Start only the API server
+npm run start:api
+
+# Start only the web server
+npm start
+```
+
+### Running Tests
+
+The project includes Playwright end-to-end tests that validate the complete flow including data persistence to Azurite.
+
+```bash
+# Run all E2E tests (auto-starts all required services)
+npm run test:e2e
+
+# Run tests in headed mode (see browser)
+npm run test:e2e:headed
+```
+
+Tests include:
+- **submit.spec.ts** - Mock-based test validating payload structure
+- **integration.spec.ts** - Full integration test that verifies data is saved to Azure Storage
+
 Security notes
 - Keep `AZURE_STORAGE_CONNECTION_STRING` secret (use app settings / GitHub secrets).
 - Consider adding CAPTCHA or rate-limiting to reduce spam.
